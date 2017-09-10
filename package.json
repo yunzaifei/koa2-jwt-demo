@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "node app",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp show"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "jsonwebtoken": "^7.4.3",
+    "kcors": "^2.2.1",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
     "koa-json": "^2.0.2",
@@ -19,5 +21,11 @@
     "koa-logger": "^3.0.1",
     "koa-router": "^7.2.1",
     "mongoose": "^4.11.8"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "jquery": "^3.2.1",
+    "opn": "^5.1.0"
   }
 }

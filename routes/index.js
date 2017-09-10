@@ -1,7 +1,6 @@
 const router = require('koa-router')()
-const jwt = require('jsonwebtoken')
 const User = require('../models/user')
-const config = require('../config')
+const base = require('../models/base')
 
 router.prefix('/api')
 
@@ -9,60 +8,62 @@ router.get('/', async(ctx, next) => {
   ctx.redirect('http://google.com')
 })
 
-router.post('/login', async(ctx, next) => {
-  console.log(ctx.request.body)
-  const uName = ctx.request.body.user_name
-  const passwd = ctx.request.body.passwd
+//登录
+router.post('/login', async ctx => {
+  const {userName, passwd} = ctx.request.body
 
-  ctx.body = {
-    name: uName,
-    passwd: passwd
+  try{
+    const user = await User.findByName(userName)
+    const isMatch = await user.comparePassword(passwd);
+    if(!isMatch){
+      ctx.throw(423, '用户名或密码错误！')
+    }
+    const token = base.signToke(user)
+    
+    ctx.body = { 
+      code: 200, 
+      message: '登录成功!', 
+      token: token
+    }
+  }catch(e){
+    ctx.throw(e)
   }
 })
 
+//注册
 router.post('/register', async ctx => {
-  const {user_name, passwd} = ctx.request.body
+  const {userName, passwd} = ctx.request.body
 
   let user = new User({
-    user_name: user_name,
-    password: passwd,
-    app_key: 'key111111',
-    app_secret: 'secret123'
+    user_name: userName,
+    password: passwd
   })
+  let result = await user.save();
+  console.log('result: ', result)
 
-  let res = { 
-    code: 200, 
-    message: 'OK!', 
-    token: '',
-    uid: ''
+  ctx.body = {
+    code: 200,
+    message: '注册成功！'
   }
-  try{
-    let result = await user.save();
-    //console.log('result: ', result)
-    res.uid = result._id
-    res.token = jwt.sign(result._id, config.jwt, {expiresIn: 10*60})
-  }catch(e){
-    res.code = e.code || 7474
-    res.message = config.getMsg(e)
-  }
-  ctx.body = res
 })
 
-router.get('/userinfo', async(ctx, next) => {
-  console.log('token', ctx)
-  const token = ctx.token // 获取jwt 
-  console.log('token', token)
-  let payload 
-  if (token) { 
-    payload = await verify(token.split(' ')[1], config.jwt) // 
-    // 解密，获取payload 
-    ctx.body = { payload } 
-  } else { 
-    ctx.body = { 
-      message: 'token 错误', 
-      code: -1 
-    } 
+//获取用户信息
+router.post('/userinfo', async ctx => {
+  
+  const user = await base.checkToken(ctx, User, true)
+  ctx.body = {
+    code: 200,
+    message: '获取用户信息成功！',
+    userName: user.user_name,
+    token: base.signToke(user)
   }
+  
+  /*
+  const token = await base.checkToken(ctx, User)
+  ctx.body = {
+    token: token
+  }
+  */
 })
 
 module.exports = router
