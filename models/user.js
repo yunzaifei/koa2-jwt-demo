@@ -55,7 +55,7 @@ UserSchema.methods.comparePassword = async function(password){
 UserSchema.statics.checkToken = async function(token){
     const secret = GetHmac()
     //console.log('secret', secret)
-    const user = await this.findOneAndUpdate({ _id: token.id }, { app_secret: GetHmac() })
+    const user = await this.findOneAndUpdate({ _id: token.id }, { app_secret: secret })
     if(token.secret == user.app_secret){
         user.app_secret = secret
         //console.log('user user: ', user)
