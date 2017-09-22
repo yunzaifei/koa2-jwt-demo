@@ -15,7 +15,7 @@ koa2开发的api服务示例，使用用jwt验证
 
 ## 知识点讲解
 
-#### koa2框架
+### koa2框架
 koa就是一种简单好用的Web框架。它的特点是优雅、简洁、表达力强、自由度高。本身代码只有1000多行，所有功能都通过插件实现，很符合Unix哲学。
 
 koa官网 [http://koajs.com/](http://koajs.com/)
@@ -24,7 +24,7 @@ koa中文文档 [https://github.com/guo-yu/koa-guide](https://github.com/guo-yu/
 
 koa2进阶学习笔记 [https://chenshenhai.github.io/koa2-note/](https://chenshenhai.github.io/koa2-note/)
 
-##### 本示例中涉及的中间件
+#### 本示例中涉及的中间件
 
 |中间件|功能说明|链接|备注|
 |----|----|----|----|
@@ -39,7 +39,7 @@ koa2进阶学习笔记 [https://chenshenhai.github.io/koa2-note/](https://chensh
 |koa-router| 路由 |[![NPM version](https://img.shields.io/npm/v/koa-router.svg?style=flat-square)](https://npmjs.org/package/koa-router)| [详细](https://chenshenhai.github.io/koa2-note/note/route/koa-router.html) |
 |mongoose| 操作mongodb数据库 |[![NPM version](https://img.shields.io/npm/v/mongoose.svg?style=flat-square)](https://npmjs.org/package/mongoose)| |
 
-##### 代码结构说明
+#### 代码结构说明
 
 本示例代码实现api服务，因为没有页面展示功能，所以没有使用[koa-static](https://www.npmjs.com/package/koa-static)加载静态资源和创建views视图结构。 
 
@@ -49,16 +49,16 @@ route文件夹是路由服务。
 
 config.js文件记录所有配置信息方便统一管理。
 
-#### jwt原理及应用
+### jwt原理及应用
 
-##### jwt原理
+#### jwt原理
 JSON Web Token（JWT）是一个非常轻巧的规范。这个规范允许我们使用JWT在用户和服务器之间传递安全可靠的信息。一个JWT实际上就是一个字符串，它由三部分组成，头部、载荷与签名。注意，在JWT中，不应该在载荷里面加入任何敏感的数据。查看jwt信息：[https://jwt.io/](https://jwt.io/)
 
 [jwt原理](http://blog.leapoahead.com/2015/09/06/understanding-jwt/)
 
 [基于Token的WEB后台认证机制](http://www.cnblogs.com/xiekeli/p/5607107.html)
 
-##### jwt应用
+#### jwt应用
 对于jwt的应用，本示例中主要用到jsonwebtoken[![NPM version](https://img.shields.io/npm/v/jsonwebtoken.svg?style=flat-square)](https://npmjs.org/package/jsonwebtoken)和koa-jwt[![NPM version](https://img.shields.io/npm/v/koa-jwt.svg?style=flat-square)](https://npmjs.org/package/koa-jwt)两个中间件。koa-jwt是对jsonwebtoken功能的封装，如果想更灵活的实现并且不怕麻烦，可以只使用jsonwebtoken中间件。
 
 jsonwebtoken用法
@@ -92,11 +92,11 @@ router.post('/xxx', async ctx => {
 }
 ```
 
-#### mongoose应用
+### mongoose应用
 mongoose文档：[http://mongoosejs.com/docs/guide.html](http://mongoosejs.com/docs/guide.html)
 mongoose中文文档：[https://mongoose.shujuwajue.com/](https://mongoose.shujuwajue.com/)
 
-#### async/await的简单使用
+### async/await的简单使用
 [async 函数](http://es6.ruanyifeng.com/#docs/async)
 
 [深入理解ES7的async/await](http://coolcao.com/2016/12/12/deeper-understanding-of-async-await/)
