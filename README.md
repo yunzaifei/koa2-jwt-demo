@@ -93,7 +93,7 @@ router.post('/xxx', async ctx => {
 ```
 
 ### mongoose应用
-mongoose文档：[http://mongoosejs.com/docs/guide.html](http://mongoosejs.com/docs/guide.html)
+mongoose文档：[http://mongoosejs.com/docs/guide.html](http://mongoosejs.com/docs/guide.html)  
 mongoose中文文档：[https://mongoose.shujuwajue.com/](https://mongoose.shujuwajue.com/)
 
 ### async/await的简单使用
