@@ -59,7 +59,7 @@ JSON Web Token（JWT）是一个非常轻巧的规范。这个规范允许我们
 [基于Token的WEB后台认证机制](http://www.cnblogs.com/xiekeli/p/5607107.html)
 
 #### jwt应用
-对于jwt的应用，本示例中主要用到`jsonwebtoken`[![NPM version](https://img.shields.io/npm/v/jsonwebtoken.svg?style=flat-square)](https://npmjs.org/package/jsonwebtoken)和`koa-jwt`[![NPM version](https://img.shields.io/npm/v/koa-jwt.svg?style=flat-square)](https://npmjs.org/package/koa-jwt)两个中间件。koa-jwt是对jsonwebtoken功能的封装，如果想更灵活的实现并且不怕麻烦，可以只使用jsonwebtoken中间件。
+对于jwt的应用，本示例中主要用到`jsonwebtoken`[![NPM version](https://img.shields.io/npm/v/jsonwebtoken.svg?style=flat-square)](https://npmjs.org/package/jsonwebtoken)和`koa-jwt`[![NPM version](https://img.shields.io/npm/v/koa-jwt.svg?style=flat-square)](https://npmjs.org/package/koa-jwt)两个中间件。`koa-jwt`是对`jsonwebtoken`功能的封装，如果想更灵活的实现并且不怕麻烦，可以只使用jsonwebtoken中间件。
 
 jsonwebtoken用法
 ```
