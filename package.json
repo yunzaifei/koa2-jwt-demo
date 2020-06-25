@@ -1,5 +1,5 @@
 {
-  "name": "img_show",
+  "name": "koa_jwt_demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^1.0.3",
+    "bcrypt": "^5.0.0",
     "jsonwebtoken": "^7.4.3",
     "kcors": "^2.2.1",
     "koa": "^2.3.0",
@@ -24,8 +24,8 @@
   },
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-connect": "^5.0.0",
-    "jquery": "^3.2.1",
+    "gulp-connect": "^5.7.0",
+    "jquery": "^3.5.1",
     "opn": "^5.1.0"
   }
 }
