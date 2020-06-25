@@ -12,18 +12,18 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0",
-    "jsonwebtoken": "^7.4.3",
+    "jsonwebtoken": "^8.5.1",
     "kcors": "^2.2.1",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
     "koa-json": "^2.0.2",
-    "koa-jwt": "^3.2.2",
+    "koa-jwt": "^4.0.0",
     "koa-logger": "^3.0.1",
     "koa-router": "^7.2.1",
-    "mongoose": "^4.11.8"
+    "mongoose": "^5.9.20"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-connect": "^5.7.0",
     "jquery": "^3.5.1",
     "opn": "^5.1.0"
