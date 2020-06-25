@@ -20,7 +20,7 @@
     "koa-jwt": "^3.2.2",
     "koa-logger": "^3.0.1",
     "koa-router": "^7.2.1",
-    "mongoose": "^4.11.8"
+    "mongoose": "^5.9.20"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
